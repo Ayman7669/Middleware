@@ -31,11 +31,11 @@ const authMiddleware = (req, res, next) => {
   }
 
   // Find user by token
-  const founduser = users.find((user) => user.token === Number(token));
+  const founduser = users.find((user) => user.token == token);
 
   if (founduser) {
     req.user = founduser;
-    next(); 
+    next();
   } else {
     res.status(401).json({ msg: "invalid user/token" });
   }
